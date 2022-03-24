@@ -1,4 +1,7 @@
 \documentclass{article}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
 \usepackage{unicode-math}
 \usepackage{lualatex-math}
 \setmainfont[
@@ -8,12 +11,64 @@
 ]{STIX2Text-Regular}
 \setmathfont{STIX2Math}
 
-\usepackage{biblatex}
-\addbibresource{references.bib}
+\usepackage{tikz}
+\usetikzlibrary{automata, trees, positioning, arrows, fit, matrix, shapes.geometric, shapes.misc, calc}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\newcommand{\Ex}{\textbf{Npr.:}\ }
+\newcommand{\Special}[1]{\textbf{#1}}
+\newcommand{\FIRST}{\textsc{first}}
+\newcommand{\OK}{\ \checkmark}
+\newcommand{\FOLLOW}{\textsc{follow}}
+\newcommand{\EOF}{\textsc{eof}}
+\newcommand{\Set}[1]{\mathbf{#1}}
+\newcommand{\Symbol}[1]{\textcolor{blue}{#1}}
+\newcommand{\Grammar}{G}
+\newcommand{\Alphabet}{\symbfup{\Sigma}}
+\newcommand{\Terminals}{\Set{T}}
+\newcommand{\NonTerminals}{\Set{N}}
+\newcommand{\Productions}{\Set{P}}
+\newcommand{\StartSymbol}{S}
+\newcommand{\Empty}{\varnothing}
+\newcommand{\Null}{\varepsilon}
+\newcommand{\Language}[1]{\mathcal{L}(#1)}
+\newcommand{\Automaton}[1]{\mathcal{M}(#1)}
+\newcommand{\Powerset}[1]{\mathcal{P}(#1)}
+\newcommand{\Str}[1]{\text{\textquotedbl\texttt{#1}\textquotedbl}}
+\newcommand{\Char}[1]{\texttt{#1}}
+\newcommand{\MathRef}[1]{\text{\ref{#1}}}
+\newcommand{\Arrow}{\Coloneq}
+\newcommand{\Derive}{\Rightarrow}
+\newcommand{\DeriveStar}{\overset{\ast}{\Rightarrow}}
+\newcommand{\DerivePlus}{\overset{+}{\Rightarrow}}
+\newcommand{\Seq}{{\ \,}}
+\newcommand{\Union}{\mathrel{|}}
+\newcommand{\Kleene}[1]{#1^\ast}
+\newcommand{\Rep}[2]{#1^#2}
+\newcommand{\Opt}[1]{#1?}
+\newcommand{\KleenePlus}[1]{#1^+}
+
 
 \begin{document}
-\section{Section}
-Text \cite{knuth_fa} text $\Rightarrow$
+\section{Drevesa}
 
-\printbibliography
+
+
+\section{Drevesne gramatike}
+%Drevesna gramatika je tuple $\Grammar = (\NonTerminals, \Alphabet, \Productions, \StartSymbol)$, kjer je $\NonTerminals$ končna množica neterminalnih simbolov, $\Alphabet$ je razvrščena abeceda, $\Productions$ je končna relacija produkcij $\NonTerminals \times T$ in $\StartSymbol \in \NonTerminals$ je začetni simbol.
+%Tukaj je $T$ drevesna izjava oblike:
+%
+%\Ex
+%\begin{align*}
+%  \Grammar_1 &= (\NonTerminals_1, \Terminals_1, \Productions_1, \StartSymbol_1) \\
+%  \NonTerminals_1 &= \{\Symbol{L}\}\\
+%  \Terminals_1 &= \{\Symbol{i}\}\\
+%  \Productions_1 &= \{ (\Symbol{L}, (\Symbol{i}, \Symbol{L})), (\Symbol{L}, \Null) \}\\
+%  \StartSymbol_1 &= \Symbol{L}
+%\end{align*}
+
+
+
 \end{document}
